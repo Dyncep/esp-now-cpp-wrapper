@@ -1,1 +1,1 @@
-idf_component_register(SRCS Main.cpp EspNowWrapper.cpp)
+idf_component_register(SRCS Main.cpp)
