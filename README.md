@@ -40,8 +40,8 @@ esp_now.addSendCallback([](const uint8_t *mac, esp_now_send_status_t status) {
 Receive Callbacks
 
 ```cpp
-/** mac is the peer mac, data is the received data, data_len is the length of the received data **/
-esp_now.addReceiveCallback([](const uint8_t *mac, const uint8_t *data, data_len) {
+/** receive info contains data about src/dest.., data is the received data, data_len is the length of the received data **/
+esp_now.addReceiveCallback([](const esp_now_recv_info_t &receive_info, const uint8_t *data, data_len) {
   /** do something **/
   });
 ```

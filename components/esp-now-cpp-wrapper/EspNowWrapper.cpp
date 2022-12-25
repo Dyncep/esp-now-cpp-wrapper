@@ -15,14 +15,14 @@ static void send_cb(const uint8_t *mac, esp_now_send_status_t status) {
   }
 }
 
-static void recv_cb(const uint8_t *mac, const uint8_t *data, int data_len) {
+static void recv_cb(const esp_now_recv_info_t *receive_info, const uint8_t *data, int data_len) {
   if (esp_now_ptr == nullptr) {
     return;
   }
 
   auto &callbacks = esp_now_ptr->getReceiveCallbacks();
   for (size_t i = 0; i < callbacks.size(); ++i) {
-    callbacks[i](mac, data, data_len);
+    callbacks[i](*receive_info, data, data_len);
   }
 }
 

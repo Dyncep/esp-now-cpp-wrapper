@@ -50,8 +50,9 @@ public:
       std::function<void(const uint8_t *mac, esp_now_send_status_t status)>;
 
   /** the receive data call back type **/
-  using ReceiveCallback = std::function<void(
-      const uint8_t *mac, const uint8_t *data, int data_len)>;
+  using ReceiveCallback =
+      std::function<void(const esp_now_recv_info_t &receive_info,
+                         const uint8_t *data, int data_len)>;
 
   /**
    * @brief constructor
